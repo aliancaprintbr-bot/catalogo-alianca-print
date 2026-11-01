@@ -1,0 +1,16 @@
+{
+  "categorias": [
+    {
+      "nome": "Agendas 2027",
+      "mensagem_em_breve": "Estamos preparando agendas por aqui. Quer saber mais? Fale com a gente."
+    },
+    {
+      "nome": "Canecas",
+      "mensagem_em_breve": "Estamos preparando canecas por aqui. Quer saber mais? Fale com a gente."
+    },
+    {
+      "nome": "Calendários",
+      "mensagem_em_breve": "Estamos preparando calendários por aqui. Quer saber mais? Fale com a gente."
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Agendas 2027 · Aliança Print</title>
+<meta name="description" content="Catálogo Aliança Print: agendas, canecas e calendários personalizados. Escolha a capa e envie o pedido pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aliança Print">
+<meta property="og:url" content="https://catalogoalianca.netlify.app/">
+<meta property="og:title" content="Agendas 2027 · Coleção Brasil | Aliança Print">
+<meta property="og:description" content="15 capas exclusivas, A5 com 350 páginas. Escolha sua capa, com ou sem versículo, e peça pelo WhatsApp.">
+<meta property="og:image" content="https://catalogoalianca.netlify.app/img/og-catalogo.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="/img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+
+/* Layout: logo fixa, título discreto, abas de coleção, grade de capas limpa; ao tocar numa capa abre uma tela com pergunta do miolo e depois galeria */
+:root {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --ink: #14213d;
+  --muted: #666d7e;
+  --line: #e4e1da;
+  --gold: #8a6a2f;
+  --brand: #14213d;
+  --wa: #128c4a;
+  --wa-press: #0e7a3f;
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1522; --surface: #172033; --ink: #f1eee7; --muted: #9aa3b5; --line: #263049; --gold: #d1ad6f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1522; --surface: #172033; --ink: #f1eee7; --muted: #9aa3b5; --line: #263049; --gold: #d1ad6f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5;
+  padding-block: 0 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.page { max-width: 960px; margin: 0 auto; }
+h1, h2, h3, p { margin: 0; }
+img { display: block; max-width: 100%; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.rd { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+button { font: inherit; }
+
+/* cabeçalho */
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 8; background: var(--bg); padding-block: 10px 8px; }
+.brandbar { background: var(--brand); border-radius: 12px; padding: 8px 18px; display: flex; align-items: center; }
+.logo { height: 40px; width: auto; }
+
+/* categorias, coleções e abas */
+.cats { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 24px; }
+.cat { font-family: var(--font-display); font-size: 20px; font-weight: 600; line-height: 1.1; color: var(--muted); padding-bottom: 6px; border-bottom: 2px solid transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+input:checked + .cat { color: var(--ink); border-bottom-color: var(--gold); }
+input:focus-visible + .cat, input:focus-visible + .tab { outline: 3px solid var(--gold); outline-offset: 4px; }
+.tabs { display: none; flex-wrap: wrap; gap: 4px 22px; margin-top: 20px; }
+.tab { font-family: var(--font-display); font-size: 21px; font-weight: 600; line-height: 1.1; color: var(--muted); padding-bottom: 4px; border-bottom: 2px solid transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+input:checked + .tab { color: var(--ink); border-bottom-color: var(--gold); }
+.colecao, .soon { display: none; }
+.meta { margin: 10px 0 26px; font-size: 13px; letter-spacing: .04em; color: var(--muted); }
+.soon { margin-top: 34px; gap: 10px; justify-items: start; max-width: 420px; }
+.soon .t { font-family: var(--font-display); font-size: 28px; font-weight: 600; }
+.soon p { color: var(--muted); }
+.soon .wbtn { margin-top: 8px; min-height: 50px; }
+
+/* grade de capas */
+.capas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 16px; }
+@media (min-width: 600px) { .capas { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 22px; } }
+@media (min-width: 860px) { .capas { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.capa { display: grid; gap: 10px; align-content: start; cursor: pointer; min-width: 0; -webkit-tap-highlight-color: transparent; }
+.capa img { width: 100%; height: auto; aspect-ratio: 1070 / 1470; border-radius: 6px; background: var(--line); box-shadow: 0 14px 26px -14px rgba(20, 33, 61, .5); transition: transform .25s ease; }
+.capa:hover img { transform: translateY(-3px); }
+.capa:active img { transform: scale(.985); }
+.num { font-size: 11px; font-weight: 700; letter-spacing: .22em; color: var(--gold); }
+.nm { font-family: var(--font-display); font-size: 21px; font-weight: 600; line-height: 1.1; }
+.capa .cap-txt { display: grid; gap: 3px; padding-inline: 2px; }
+
+/* tela da capa */
+.ov { display: none; position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; overscroll-behavior: contain; padding-top: env(safe-area-inset-top, 0px); }
+.ov-in { max-width: 480px; min-height: 100%; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left, 0px)) 0 max(16px, env(safe-area-inset-right, 0px)); display: grid; grid-template-rows: auto 1fr auto; }
+.ov-bar { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 8px 0; background: var(--bg); }
+.back { appearance: none; border: 0; background: none; color: var(--ink); display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 8px 0 0; font-weight: 500; font-size: 15px; cursor: pointer; }
+.back:focus-visible, .swap:focus-visible, .confirm:focus-visible, .wbtn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.ov-col { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.ov-body { display: grid; gap: 22px; align-content: start; padding-block: 8px 24px; }
+.ov-cover { width: min(46%, 190px); height: auto; margin: 0 auto; border-radius: 6px; aspect-ratio: 1070 / 1470; box-shadow: 0 22px 36px -18px rgba(20, 33, 61, .55); }
+.ov-name { display: grid; gap: 4px; justify-items: center; text-align: center; }
+.ov-name .nm { font-size: 32px; }
+.ask { display: grid; gap: 6px; text-align: center; }
+.ask h2 { font-family: var(--font-display); font-size: 28px; font-weight: 600; line-height: 1.1; }
+.ask p { color: var(--muted); font-size: 15px; }
+.opts { display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 14px; align-items: center; padding: 16px 18px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.opt .t { font-size: 17px; font-weight: 700; }
+.opt .d { grid-column: 1; font-size: 14px; color: var(--muted); }
+.opt::after { content: ""; grid-column: 2; grid-row: 1 / span 2; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--line); }
+.bottom { position: sticky; bottom: 0; z-index: 3; padding: 14px 0 calc(14px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(to bottom, transparent, var(--bg) 22%); }
+.confirm { display: flex; justify-content: center; align-items: center; min-height: 54px; border-radius: 12px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 16px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+
+/* galeria depois de confirmar */
+.vg { display: none; }
+.gal { position: relative; width: min(100%, 360px); margin: 0 auto; }
+.slides { display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; aspect-ratio: 3 / 4; border-radius: 8px; box-shadow: 0 22px 36px -18px rgba(20, 33, 61, .55); background: var(--surface); }
+.slides::-webkit-scrollbar { display: none; }
+.slide { flex: 0 0 100%; position: relative; scroll-snap-align: start; min-width: 0; height: 100%; }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+.sl-mio { display: none; }
+.sl-mio img { object-fit: contain; background: #fff; }
+.chip { position: absolute; bottom: 12px; left: 12px; z-index: 2; padding: 4px 10px; border-radius: 999px; background: rgba(15, 21, 34, .72); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.nav { display: none; position: absolute; top: 50%; z-index: 3; translate: 0 -50%; width: 38px; height: 38px; padding: 0; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .94); color: #14213d; font-size: 24px; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0, 0, 0, .35); -webkit-tap-highlight-color: transparent; }
+.nav:hover { background: #fff; }
+.nav:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.nav.prev { left: 8px; }
+.nav.next { right: 8px; }
+.js .nav { display: grid; }
+.js .nav[hidden] { display: none; }
+.dots { display: flex; justify-content: center; gap: 7px; margin-top: 14px; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
+.js .dots i { cursor: pointer; }
+.dots i.on { background: var(--gold); }
+.sum { display: grid; gap: 4px; justify-items: center; text-align: center; }
+.sum .pick { font-size: 17px; font-weight: 700; }
+.sum .spec { font-size: 14px; color: var(--muted); letter-spacing: .03em; }
+.v, .wbtn.combo { display: none; }
+.swap { appearance: none; border: 0; background: none; padding: 6px 4px; margin-top: 2px; color: var(--muted); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.wbtn { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 54px; padding: 0 22px; border-radius: 12px; background: var(--wa); color: #fff; font-weight: 700; font-size: 16px; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.wbtn:active { background: var(--wa-press); }
+
+
+/* estados controlados pelo script */
+[hidden] { display: none !important; }
+.tabs.on { display: flex; }
+.colecao.on { display: block; }
+.soon.on { display: grid; }
+html.lock { overflow: hidden; }
+.ov.open { display: block; }
+.ov .vg { display: none; }
+.ov.done .vq { display: none; }
+.ov.done .vg { display: block; }
+.opt { text-align: left; width: 100%; font: inherit; color: inherit; }
+.opt.sel { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.opt.sel::after { border-color: var(--gold); background: radial-gradient(circle, var(--gold) 0 46%, transparent 50%); }
+.opt:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.confirm { width: 100%; border: 0; }
+.confirm[disabled] { opacity: .35; pointer-events: none; }
+.capa { appearance: none; border: 0; background: none; padding: 0; text-align: left; color: inherit; font: inherit; }
+.capa:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; border-radius: 6px; }
+.capa img { object-fit: cover; }
+.state { margin-top: 40px; color: var(--muted); }
+.stack { display: grid; gap: 22px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="brandbar"><img class="logo" alt="Aliança Print" width="164" height="40" src="/img/logo.webp"></div>
+  </header>
+  <main>
+    <h1 class="vh">Aliança Print: catálogo de produtos</h1>
+    <div class="cats" role="tablist" aria-label="Categorias" id="cats"></div>
+    <div id="cols"></div>
+    <p class="state" id="state">Carregando catálogo…</p>
+  </main>
+</div>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="ov-nm">
+  <div class="ov-in">
+    <div class="ov-bar"><button class="back" type="button" id="ov-back"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><span>Voltar</span></button><span class="ov-col" id="ov-col"></span></div>
+    <div class="ov-body">
+      <div class="vq"><div class="stack">
+        <img class="ov-cover" id="ov-cover" alt="" decoding="async">
+        <div class="ov-name"><span class="num" id="ov-num"></span><span class="nm" id="ov-nm"></span></div>
+        <div id="ov-ask-wrap">
+          <div class="ask"><h2 id="ov-ask"></h2><p id="ov-sub"></p></div>
+          <div class="opts" id="ov-opts" role="radiogroup" style="margin-top:22px"></div>
+        </div>
+      </div></div>
+      <div class="vg"><div class="stack">
+        <div class="gal">
+          <div class="slides" tabindex="0" role="group" aria-roledescription="carrossel" aria-label="Fotos do produto" id="ov-slides"></div>
+          <button class="nav prev" type="button" aria-label="Imagem anterior" hidden>‹</button><button class="nav next" type="button" aria-label="Próxima imagem">›</button>
+          <div class="dots" aria-hidden="true" id="ov-dots"></div>
+        </div>
+        <div class="sum"><span class="num" id="ov-num2"></span><span class="nm" id="ov-nm2"></span><span class="pick" id="ov-pick"></span><span class="spec" id="ov-spec"></span>
+          <button class="swap" type="button" id="ov-swap">Trocar miolo</button></div>
+      </div></div>
+    </div>
+    <div class="bottom">
+      <div class="vq"><button class="confirm" type="button" id="ov-confirm" disabled>Confirmar</button></div>
+      <div class="vg"><a class="wbtn" id="ov-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 0 1 0 16.2 8.1 8.1 0 0 1-4.13-1.13l-.3-.17-3.12.82.83-3.04-.2-.31A8.1 8.1 0 0 1 12.04 3.8zm-3.2 4.3c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.66 2.65 4.1 3.6 2.03.8 2.44.64 2.88.6.44-.04 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.1-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.46-.4-.4-.54-.4z"/></svg><span>Enviar pedido no WhatsApp</span></a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var WA_SVG = "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\" focusable=\"false\" fill=\"currentColor\"><path d=\"M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 0 1 0 16.2 8.1 8.1 0 0 1-4.13-1.13l-.3-.17-3.12.82.83-3.04-.2-.31A8.1 8.1 0 0 1 12.04 3.8zm-3.2 4.3c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.66 2.65 4.1 3.6 2.03.8 2.44.64 2.88.6.44-.04 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.1-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.46-.4-.4-.54-.4z\"/></svg>";
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var slug = function (s) { return String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); };
+  var pad = function (n) { return n < 10 ? "0" + n : String(n); };
+  var local = /^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:";
+  function img(src, w) {
+    if (!src) return "";
+    if (local || /^https?:/.test(src)) return src;
+    return "/.netlify/images?url=" + encodeURIComponent(src) + "&w=" + w + "&q=82";
+  }
+  function fallback(el, src) { el.onerror = function () { el.onerror = null; el.src = src; }; }
+  function getJSON(u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(u); return r.json(); }); }
+
+  var cfg = {}, cats = [], cols = [], cur = null;
+
+  Promise.all([getJSON("/data/config.json"), getJSON("/data/categorias.json"), getJSON("/data/colecoes.json")])
+    .then(function (r) {
+      cfg = r[0] || {};
+      cats = (r[1] && r[1].categorias) || [];
+      cols = ((r[2] && r[2].colecoes) || []).filter(function (c) { return c && c.publicada !== false && c.nome; });
+      cols.forEach(function (c) { c.id = slug(c.nome); c.capas = (c.capas || []).filter(function (x) { return x && x.imagem; }); c.miolos = (c.miolos || []).filter(function (m) { return m && m.titulo; }); });
+      render();
+    })
+    .catch(function () { $("state").textContent = "Não foi possível carregar o catálogo. Atualize a página."; });
+
+  function wa(text) { return "https://wa.me/" + String(cfg.whatsapp || "").replace(/\D/g, "") + "?text=" + encodeURIComponent(text); }
+
+  function render() {
+    $("state").hidden = true;
+    var catsEl = $("cats"), colsEl = $("cols"), h = "", b = "";
+    cats.forEach(function (cat, i) {
+      var cid = slug(cat.nome), list = cols.filter(function (c) { return c.categoria === cat.nome; });
+      h += '<input class="rd" type="radio" name="categoria" id="cat-' + cid + '" value="' + cid + '"' + (i === 0 ? " checked" : "") + '><label class="cat" for="cat-' + cid + '">' + esc(cat.nome) + "</label>";
+      if (list.length) {
+        b += '<div class="tabs" data-cat="' + cid + '" role="group" aria-label="Coleções">';
+        list.forEach(function (c, j) { b += '<input class="rd" type="radio" name="col-' + cid + '" id="col-' + c.id + '" value="' + c.id + '"' + (j === 0 ? " checked" : "") + '><label class="tab" for="col-' + c.id + '">' + esc(c.nome) + "</label>"; });
+        b += "</div>";
+        list.forEach(function (c) {
+          var meta = [c.especificacao, c.capas.length + " " + (c.rotulo_item || "Capa").toLowerCase() + (c.capas.length === 1 ? "" : "s")].filter(Boolean).join(" · ");
+          b += '<section class="colecao" data-cat="' + cid + '" data-col="' + c.id + '" aria-label="' + esc(c.nome) + '"><p class="meta">' + esc(meta) + '</p><div class="capas">';
+          c.capas.forEach(function (x, k) {
+            b += '<button type="button" class="capa" data-col="' + c.id + '" data-i="' + k + '"><img src="' + esc(img(x.imagem, 480)) + '" data-src="' + esc(x.imagem) + '" width="420" height="577" alt="' + esc(c.rotulo_item || "Capa") + ' ' + pad(k + 1) + ", " + esc(x.nome) + '" loading="lazy" decoding="async"><span class="cap-txt"><span class="num">' + pad(k + 1) + '</span><span class="nm">' + esc(x.nome) + "</span></span></button>";
+          });
+          b += "</div></section>";
+        });
+      } else {
+        var msg = cat.mensagem_em_breve || "Estamos preparando novidades por aqui. Quer saber mais? Fale com a gente.";
+        b += '<section class="soon" data-cat="' + cid + '" aria-label="' + esc(cat.nome) + '"><p class="t">Em breve</p><p>' + esc(msg) + '</p><a class="wbtn" target="_blank" rel="noopener" href="' + esc(wa("Olá! Quero saber mais sobre " + cat.nome.toLowerCase() + ".")) + '">' + WA_SVG + "<span>Falar no WhatsApp</span></a></section>";
+      }
+    });
+    catsEl.innerHTML = h; colsEl.innerHTML = b;
+    colsEl.querySelectorAll("img[data-src]").forEach(function (el) { fallback(el, el.getAttribute("data-src")); });
+    document.addEventListener("change", function (e) { if (e.target.name === "categoria" || /^col-/.test(e.target.name)) show(); });
+    colsEl.addEventListener("click", function (e) { var b = e.target.closest(".capa"); if (b) open(b.getAttribute("data-col"), +b.getAttribute("data-i"), true); });
+    show();
+    var m = /^#(.+)-(\d+)$/.exec(location.hash);
+    if (m) { var c0 = cols.filter(function (c) { return c.id === m[1]; })[0]; if (c0 && c0.capas[m[2] - 1]) { selectCol(c0); open(c0.id, m[2] - 1, false); } }
+  }
+
+  function selectCol(c) {
+    var ci = document.getElementById("cat-" + slug(c.categoria)); if (ci) ci.checked = true;
+    var t = document.getElementById("col-" + c.id); if (t) t.checked = true;
+    show();
+  }
+
+  function show() {
+    var cat = (document.querySelector('input[name="categoria"]:checked') || {}).value;
+    document.querySelectorAll(".tabs").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-cat") === cat); });
+    document.querySelectorAll(".soon").forEach(function (t) { t.classList.toggle("on", t.getAttribute("data-cat") === cat); });
+    var col = (document.querySelector('input[name="col-' + cat + '"]:checked') || {}).value;
+    document.querySelectorAll(".colecao").forEach(function (s) { s.classList.toggle("on", s.getAttribute("data-col") === col && s.getAttribute("data-cat") === cat); });
+  }
+
+  // ---- tela da capa ----
+  var ov = $("ov"), lastFocus = null;
+  function open(colId, i, push) {
+    var c = cols.filter(function (x) { return x.id === colId; })[0]; if (!c) return;
+    var capa = c.capas[i], R = c.rotulo_item || "Capa";
+    cur = { c: c, i: i, capa: capa, m: -1 };
+    $("ov-col").textContent = c.nome;
+    var cover = $("ov-cover"); cover.src = img(capa.imagem, 600); fallback(cover, capa.imagem); cover.alt = R + " " + pad(i + 1) + ", " + capa.nome;
+    $("ov-num").textContent = $("ov-num2").textContent = R.toUpperCase() + " " + pad(i + 1);
+    $("ov-nm").textContent = $("ov-nm2").textContent = capa.nome;
+    $("ov-spec").textContent = c.especificacao || "";
+    var hasM = c.miolos.length > 0;
+    $("ov-ask-wrap").hidden = !hasM;
+    $("ov-swap").hidden = c.miolos.length < 2;
+    if (hasM) {
+      $("ov-ask").textContent = c.pergunta_miolo || "Qual miolo você prefere?";
+      $("ov-sub").textContent = c.subtitulo_miolo || "";
+      $("ov-sub").hidden = !c.subtitulo_miolo;
+      $("ov-opts").innerHTML = c.miolos.map(function (m, k) {
+        return '<button type="button" class="opt" role="radio" aria-checked="false" data-k="' + k + '"><span class="t">' + esc(m.titulo) + '</span><span class="d">' + esc(m.descricao || "") + "</span></button>";
+      }).join("");
+      if (c.miolos.length === 1) pick(0);
+    }
+    ov.classList.remove("done");
+    $("ov-confirm").disabled = hasM && cur.m < 0;
+    $("ov-confirm").textContent = hasM ? "Confirmar" : "Continuar";
+    ov.classList.add("open"); document.documentElement.classList.add("lock"); ov.scrollTop = 0;
+    lastFocus = document.activeElement; $("ov-back").focus({ preventScroll: true });
+    if (push) history.pushState({ ov: 1 }, "", "#" + c.id + "-" + (i + 1));
+  }
+  function pick(k) {
+    cur.m = k;
+    $("ov-opts").querySelectorAll(".opt").forEach(function (o) { var on = +o.getAttribute("data-k") === k; o.classList.toggle("sel", on); o.setAttribute("aria-checked", on); });
+    $("ov-confirm").disabled = false;
+  }
+  function confirmStep() {
+    var c = cur.c, m = c.miolos[cur.m], R = c.rotulo_item || "Capa", slides = [{ chip: R, src: cur.capa.imagem, alt: $("ov-cover").alt }];
+    if (m && m.imagem) slides.push({ chip: "Miolo", src: m.imagem, alt: "Página do miolo " + (m.resumo || m.titulo), contain: true });
+    (m && m.fotos_extras || []).forEach(function (f) { if (f && f.imagem) slides.push({ chip: "Miolo", src: f.imagem, alt: "Página do miolo", contain: true }); });
+    var s = $("ov-slides");
+    s.innerHTML = slides.map(function (x) {
+      return '<div class="slide' + (x.contain ? " sl-mio" : "") + '" style="display:block"><span class="chip">' + x.chip + '</span><img src="' + esc(img(x.src, 900)) + '" data-src="' + esc(x.src) + '" alt="' + esc(x.alt) + '" decoding="async"></div>';
+    }).join("");
+    s.querySelectorAll("img").forEach(function (el) { fallback(el, el.getAttribute("data-src")); });
+    $("ov-dots").innerHTML = slides.map(function (_, k) { return "<i" + (k ? "" : ' class="on"') + "></i>"; }).join("");
+    $("ov-pick").textContent = m ? (m.resumo || m.titulo) : "";
+    var produto = c.produto_no_pedido || c.nome;
+    var txt = "Olá! Quero " + produto + ":\n• " + R + ": " + pad(cur.i + 1) + " · " + cur.capa.nome;
+    if (m) txt += "\n• Miolo: " + (m.no_pedido || m.titulo);
+    if (c.pedir_nome !== false) txt += "\n\n" + (c.texto_nome || "Nome para a capa") + ": ";
+    $("ov-wa").href = wa(txt);
+    ov.classList.add("done"); ov.scrollTop = 0;
+    requestAnimationFrame(function () { s.scrollLeft = 0; sync(s); });
+  }
+  function close(fromPop) {
+    if (!ov.classList.contains("open")) return;
+    ov.classList.remove("open", "done"); document.documentElement.classList.remove("lock");
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    if (!fromPop && history.state && history.state.ov) history.back();
+    else if (!fromPop && location.hash) history.replaceState(null, "", location.pathname + location.search);
+  }
+  $("ov-opts").addEventListener("click", function (e) { var o = e.target.closest(".opt"); if (o) pick(+o.getAttribute("data-k")); });
+  $("ov-confirm").addEventListener("click", confirmStep);
+  $("ov-swap").addEventListener("click", function () { ov.classList.remove("done"); ov.scrollTop = 0; });
+  $("ov-back").addEventListener("click", function () { if (ov.classList.contains("done") && cur.c.miolos.length > 1) { ov.classList.remove("done"); return; } close(false); });
+  window.addEventListener("popstate", function () { close(true); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(false); });
+
+  // ---- carrossel ----
+  function sync(s) {
+    if (!s.clientWidth) return;
+    var total = Math.round(s.scrollWidth / s.clientWidth), cur = Math.round(s.scrollLeft / s.clientWidth), gal = s.parentNode;
+    gal.querySelectorAll(".dots i").forEach(function (d, k) { d.className = k === cur ? "on" : ""; });
+    gal.querySelector(".nav.prev").hidden = cur <= 0;
+    gal.querySelector(".nav.next").hidden = cur >= total - 1;
+  }
+  $("ov-slides").addEventListener("scroll", function (e) { sync(e.target); });
+  document.querySelector(".gal").addEventListener("click", function (e) {
+    var s = $("ov-slides"), btn = e.target.closest(".nav"), dot = e.target.closest(".dots i");
+    if (btn) s.scrollTo({ left: s.scrollLeft + (btn.classList.contains("next") ? 1 : -1) * s.clientWidth, behavior: "smooth" });
+    else if (dot) s.scrollTo({ left: Array.prototype.indexOf.call(dot.parentNode.children, dot) * s.clientWidth, behavior: "smooth" });
+  });
+  document.documentElement.classList.add("js"); document.querySelector(".page").classList.add("js"); ov.classList.add("js");
+})();
+</script>
+</body>
+</html>

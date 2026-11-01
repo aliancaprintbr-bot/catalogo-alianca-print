@@ -1,0 +1,112 @@
+# Painel do catálogo Aliança Print (Sveltia CMS)
+backend:
+  name: github
+  repo: aliancaprintbr-bot/catalogo-alianca-print
+  branch: main
+  commit_messages:
+    update: "Painel: atualiza {{slug}}"
+    uploadMedia: "Painel: envia imagem {{path}}"
+
+site_url: https://catalogoalianca.netlify.app
+display_url: https://catalogoalianca.netlify.app
+logo_url: /img/logo.webp
+
+media_folder: img/uploads
+public_folder: /img/uploads
+
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1600
+          height: 1600
+
+collections:
+  - name: catalogo
+    label: Catálogo
+    format: json
+    editor:
+      preview: false
+    files:
+      - name: colecoes
+        label: Coleções e capas
+        file: data/colecoes.json
+        fields:
+          - name: colecoes
+            label: Coleções
+            label_singular: Coleção
+            widget: list
+            summary: "{{fields.nome}} · {{fields.categoria}}"
+            collapsed: true
+            add_to_top: false
+            fields:
+              - { name: nome, label: Nome da coleção, widget: string, hint: "Ex.: Coleção Brasil. Aparece como aba no site." }
+              - name: categoria
+                label: Categoria
+                widget: relation
+                collection: catalogo
+                file: categorias
+                value_field: "categorias.*.nome"
+                search_fields: ["categorias.*.nome"]
+                display_fields: ["categorias.*.nome"]
+                hint: "Em qual aba do topo a coleção aparece (Agendas, Canecas...)."
+              - { name: publicada, label: Mostrar no site, widget: boolean, default: true, hint: "Desligue para esconder a coleção sem apagar." }
+              - { name: especificacao, label: Especificação, widget: string, required: false, hint: "Ex.: A5 · 350 páginas" }
+              - { name: produto_no_pedido, label: Produto na mensagem do WhatsApp, widget: string, hint: "Completa a frase “Olá! Quero …”. Ex.: a Agenda 2027 Coleção Brasil (A5)" }
+              - { name: pedir_nome, label: Pedir nome para a capa no WhatsApp, widget: boolean, default: true }
+              - { name: texto_nome, label: Texto do pedido de nome, widget: string, required: false, default: "Nome para a capa", hint: "Só usado se “Pedir nome” estiver ligado." }
+              - { name: rotulo_item, label: Como chamar cada item, widget: string, required: false, default: "Capa", hint: "Ex.: Capa (agendas), Modelo (canecas), Estampa. Aparece como “CAPA 01”, “MODELO 01”." }
+              - name: capas
+                label: Capas / modelos
+                label_singular: Capa
+                widget: list
+                summary: "{{fields.nome}}"
+                hint: "A ordem aqui é a numeração no site (01, 02...). Arraste para reordenar."
+                fields:
+                  - { name: nome, label: Nome da capa, widget: string }
+                  - { name: imagem, label: Foto da capa, widget: image, hint: "Foto em pé (retrato), de preferência com fundo bonito." }
+              - { name: pergunta_miolo, label: Pergunta do miolo, widget: string, required: false, default: "Com versículo ou sem?" }
+              - { name: subtitulo_miolo, label: Texto abaixo da pergunta, widget: string, required: false, default: "Escolha o miolo da sua agenda." }
+              - name: miolos
+                label: Opções de miolo
+                label_singular: Miolo
+                widget: list
+                required: false
+                summary: "{{fields.titulo}}"
+                hint: "Deixe vazio para produtos sem escolha de miolo (ex.: canecas). O cliente vai direto para o WhatsApp."
+                fields:
+                  - { name: titulo, label: Título da opção, widget: string, hint: "Ex.: Com versículo" }
+                  - { name: descricao, label: Descrição, widget: text, required: false }
+                  - { name: resumo, label: Resumo mostrado após escolher, widget: string, required: false, hint: "Ex.: Com versículo · Edificante" }
+                  - { name: no_pedido, label: Nome no pedido do WhatsApp, widget: string, required: false, hint: "Ex.: Edificante (com versículo)" }
+                  - { name: imagem, label: Foto do miolo, widget: image, required: false }
+                  - name: fotos_extras
+                    label: Mais fotos do miolo
+                    widget: list
+                    required: false
+                    field: { name: imagem, label: Foto, widget: image }
+
+      - name: categorias
+        label: Categorias (abas do topo)
+        file: data/categorias.json
+        fields:
+          - name: categorias
+            label: Categorias
+            label_singular: Categoria
+            widget: list
+            summary: "{{fields.nome}}"
+            hint: "Categoria sem nenhuma coleção publicada aparece como “Em breve”."
+            fields:
+              - { name: nome, label: Nome, widget: string }
+              - { name: mensagem_em_breve, label: Mensagem de “Em breve”, widget: text, required: false }
+
+      - name: config
+        label: Configurações
+        file: data/config.json
+        fields:
+          - { name: whatsapp, label: Número do WhatsApp (com 55 e DDD), widget: string, pattern: ['^\d{12,13}$', "Só números, ex.: 556298003407"] }
+          - { name: titulo_site, label: Nome da loja, widget: string, required: false }

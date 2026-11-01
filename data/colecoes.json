@@ -1,0 +1,92 @@
+{
+  "colecoes": [
+    {
+      "nome": "Coleção Brasil",
+      "categoria": "Agendas 2027",
+      "publicada": true,
+      "especificacao": "A5 · 350 páginas",
+      "produto_no_pedido": "a Agenda 2027 Coleção Brasil (A5)",
+      "pergunta_miolo": "Com versículo ou sem?",
+      "subtitulo_miolo": "Escolha o miolo da sua agenda.",
+      "miolos": [
+        {
+          "titulo": "Com versículo",
+          "descricao": "Um versículo bíblico em cada dia, com o espaço “Edificação de hoje”.",
+          "resumo": "Com versículo · Edificante",
+          "no_pedido": "Edificante (com versículo)",
+          "imagem": "/img/brasil-miolo-1.webp"
+        },
+        {
+          "titulo": "Sem versículo",
+          "descricao": "Calendário do mês e espaço para anotações em cada dia.",
+          "resumo": "Sem versículo · Comercial Clássica",
+          "no_pedido": "Comercial Clássica (sem versículo)",
+          "imagem": "/img/brasil-miolo-2.webp"
+        }
+      ],
+      "pedir_nome": true,
+      "capas": [
+        {
+          "nome": "Helicônias e Renda",
+          "imagem": "/img/brasil-capa-01.webp"
+        },
+        {
+          "nome": "Tucano e Palmeiras",
+          "imagem": "/img/brasil-capa-02.webp"
+        },
+        {
+          "nome": "Varanda e Frutas",
+          "imagem": "/img/brasil-capa-03.webp"
+        },
+        {
+          "nome": "Ave-do-Paraíso",
+          "imagem": "/img/brasil-capa-04.webp"
+        },
+        {
+          "nome": "Sertão e Renda",
+          "imagem": "/img/brasil-capa-05.webp"
+        },
+        {
+          "nome": "Limões e Azulejos",
+          "imagem": "/img/brasil-capa-06.webp"
+        },
+        {
+          "nome": "Buganvília e Porta Azul",
+          "imagem": "/img/brasil-capa-07.webp"
+        },
+        {
+          "nome": "Pátio Azul",
+          "imagem": "/img/brasil-capa-08.webp"
+        },
+        {
+          "nome": "Lampião e Flores Amarelas",
+          "imagem": "/img/brasil-capa-09.webp"
+        },
+        {
+          "nome": "Fitas e Igrejinha",
+          "imagem": "/img/brasil-capa-10.webp"
+        },
+        {
+          "nome": "Onça-Pintada",
+          "imagem": "/img/brasil-capa-11.webp"
+        },
+        {
+          "nome": "Tucano",
+          "imagem": "/img/brasil-capa-12.webp"
+        },
+        {
+          "nome": "Jardim de Terracota",
+          "imagem": "/img/brasil-capa-13.webp"
+        },
+        {
+          "nome": "Estampa Brasil",
+          "imagem": "/img/brasil-capa-14.webp"
+        },
+        {
+          "nome": "Cacto e Flores",
+          "imagem": "/img/brasil-capa-15.webp"
+        }
+      ]
+    }
+  ]
+}
