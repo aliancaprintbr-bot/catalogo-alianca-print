@@ -87,6 +87,162 @@
           "imagem": "/img/brasil-capa-15.webp"
         }
       ]
+    },
+    {
+      "nome": "Coleção Essência",
+      "categoria": "Agendas 2027",
+      "publicada": true,
+      "especificacao": "A5 · 350 páginas",
+      "produto_no_pedido": "a Agenda 2027 Coleção Essência (A5)",
+      "pergunta_miolo": "Com versículo ou sem?",
+      "subtitulo_miolo": "Escolha o miolo da sua agenda.",
+      "miolos": [
+        {
+          "titulo": "Com versículo",
+          "descricao": "Um versículo bíblico em cada dia, com o espaço “Edificação de hoje”.",
+          "resumo": "Com versículo · Edificante",
+          "no_pedido": "Edificante (com versículo)",
+          "imagem": "/img/brasil-miolo-1.webp"
+        },
+        {
+          "titulo": "Sem versículo",
+          "descricao": "Calendário do mês e espaço para anotações em cada dia.",
+          "resumo": "Sem versículo · Comercial Clássica",
+          "no_pedido": "Comercial Clássica (sem versículo)",
+          "imagem": "/img/brasil-miolo-2.webp"
+        }
+      ],
+      "pedir_nome": true,
+      "capas": [
+        {
+          "nome": "Fé e Propósito Azul Claro",
+          "imagem": "/img/essencia-capa-01.webp"
+        },
+        {
+          "nome": "Fé e Propósito Azul Marinho",
+          "imagem": "/img/essencia-capa-02.webp"
+        },
+        {
+          "nome": "Fé e Propósito Marrom Caramelo",
+          "imagem": "/img/essencia-capa-03.webp"
+        },
+        {
+          "nome": "Fé e Propósito Marsala",
+          "imagem": "/img/essencia-capa-04.webp"
+        },
+        {
+          "nome": "Fé e Propósito Preto e Dourado",
+          "imagem": "/img/essencia-capa-05.webp"
+        },
+        {
+          "nome": "Fé e Propósito Rosé",
+          "imagem": "/img/essencia-capa-06.webp"
+        },
+        {
+          "nome": "Fé e Propósito Taupe",
+          "imagem": "/img/essencia-capa-07.webp"
+        },
+        {
+          "nome": "Fé e Propósito Terracota",
+          "imagem": "/img/essencia-capa-08.webp"
+        },
+        {
+          "nome": "Fé e Propósito Verde Oliva",
+          "imagem": "/img/essencia-capa-09.webp"
+        },
+        {
+          "nome": "Fé e Propósito Verde Esmeralda",
+          "imagem": "/img/essencia-capa-10.webp"
+        },
+        {
+          "nome": "Onda Dourada Azul Marinho",
+          "imagem": "/img/essencia-capa-11.webp"
+        },
+        {
+          "nome": "Onda Dourada Marrom",
+          "imagem": "/img/essencia-capa-12.webp"
+        },
+        {
+          "nome": "Onda Dourada Preto",
+          "imagem": "/img/essencia-capa-13.webp"
+        },
+        {
+          "nome": "Onda Dourada Terracota",
+          "imagem": "/img/essencia-capa-14.webp"
+        },
+        {
+          "nome": "Onda Dourada Verde Oliva",
+          "imagem": "/img/essencia-capa-15.webp"
+        },
+        {
+          "nome": "Botânica Azul",
+          "imagem": "/img/essencia-capa-16.webp"
+        },
+        {
+          "nome": "Botânica Azul Escuro",
+          "imagem": "/img/essencia-capa-17.webp"
+        },
+        {
+          "nome": "Botânica Azul Tiffany",
+          "imagem": "/img/essencia-capa-18.webp"
+        },
+        {
+          "nome": "Botânica Malva",
+          "imagem": "/img/essencia-capa-19.webp"
+        },
+        {
+          "nome": "Botânica Marrom",
+          "imagem": "/img/essencia-capa-20.webp"
+        },
+        {
+          "nome": "Botânica Marsala",
+          "imagem": "/img/essencia-capa-21.webp"
+        },
+        {
+          "nome": "Botânica Preto",
+          "imagem": "/img/essencia-capa-22.webp"
+        },
+        {
+          "nome": "Botânica Rosé",
+          "imagem": "/img/essencia-capa-23.webp"
+        },
+        {
+          "nome": "Botânica Terracota",
+          "imagem": "/img/essencia-capa-24.webp"
+        },
+        {
+          "nome": "Botânica Verde",
+          "imagem": "/img/essencia-capa-25.webp"
+        },
+        {
+          "nome": "Botânica Verde Oliva",
+          "imagem": "/img/essencia-capa-26.webp"
+        },
+        {
+          "nome": "Botânica Glória Nude",
+          "imagem": "/img/essencia-capa-27.webp"
+        },
+        {
+          "nome": "Botânica Glória Azul Petróleo",
+          "imagem": "/img/essencia-capa-28.webp"
+        },
+        {
+          "nome": "Botânica Glória Terracota",
+          "imagem": "/img/essencia-capa-29.webp"
+        },
+        {
+          "nome": "Botânica Glória Ameixa",
+          "imagem": "/img/essencia-capa-30.webp"
+        },
+        {
+          "nome": "Botânica Glória Azul e Rosé",
+          "imagem": "/img/essencia-capa-31.webp"
+        },
+        {
+          "nome": "Legado Verde Sálvia",
+          "imagem": "/img/essencia-capa-32.webp"
+        }
+      ]
     }
   ]
 }
