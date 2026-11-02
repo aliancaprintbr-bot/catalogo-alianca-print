@@ -184,15 +184,49 @@ html.lock { overflow: hidden; }
 @media (min-width: 600px) { .rs .capa { flex-basis: 23%; } }
 @media (min-width: 860px) { .rs .capa { flex-basis: 18%; } }
 .rs .nm { font-size: 17px; }
+/* em telas largas as fileiras não passam da largura do topo */
+@media (min-width: 992px) { .cats, .tabs.on, .rs { margin-right: 0; padding-right: 0; } }
 .gview .rh { margin-bottom: 18px; }
 .back2 { appearance: none; border: 0; background: none; padding: 6px 0; font: inherit; font-size: 14px; font-weight: 600; color: var(--muted); cursor: pointer; }
+
+/* ---- abertura com parallax ---- */
+.pxh{position:relative;height:260px;margin:0 -16px;overflow:hidden;background:radial-gradient(130% 100% at 50% 0%,#21315a 0%,#14213d 55%,#0c1526 100%);isolation:isolate}
+.L1{position:absolute;inset:-40px -20px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:center;opacity:.38;filter:blur(1.5px) saturate(.9);will-change:transform}
+.L1 img{width:100%;aspect-ratio:1070/1470;object-fit:cover;border-radius:8px}
+.L1 img:nth-child(odd){transform:translateY(30px)}
+.pxh::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(20,33,61,.55) 0%,rgba(20,33,61,.7) 50%,rgba(12,21,38,.92) 100%)}
+.L2{position:absolute;inset:-60px 0;z-index:1;will-change:transform;opacity:.55;
+ background-image:radial-gradient(1.4px 1.4px at 12% 22%,#e3c48a 50%,transparent 51%),radial-gradient(1px 1px at 78% 18%,#e3c48a 50%,transparent 51%),radial-gradient(1.6px 1.6px at 64% 64%,#d1ad6f 50%,transparent 51%),radial-gradient(1px 1px at 30% 72%,#e3c48a 50%,transparent 51%),radial-gradient(1.2px 1.2px at 88% 52%,#d1ad6f 50%,transparent 51%),radial-gradient(1px 1px at 46% 38%,#f0dcae 50%,transparent 51%),radial-gradient(1.3px 1.3px at 6% 58%,#d1ad6f 50%,transparent 51%),radial-gradient(1px 1px at 56% 88%,#e3c48a 50%,transparent 51%);
+ animation:tw 6s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.35}to{opacity:.7}}
+.L3{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;will-change:transform,opacity}
+.L3 .lg{height:64px;width:auto;animation:lgIn 1.2s cubic-bezier(.2,.7,.2,1) both}
+.orn{display:flex;align-items:center;gap:10px;width:58%;color:#d1ad6f}
+.orn span{flex:1;height:1px;background:linear-gradient(90deg,transparent,#d1ad6f,transparent);animation:lineIn 1.2s .4s cubic-bezier(.2,.7,.2,1) both}
+.orn i{font-style:normal;font-size:10px;animation:fadeIn .8s .9s both}
+.tg{margin:0;font-size:10.5px;letter-spacing:.34em;font-weight:700;color:#d1ad6f;animation:fadeIn 1s 1s both}
+.bar{position:fixed;top:0;left:0;right:0;z-index:8;height:calc(env(safe-area-inset-top,0px) + 60px);padding-top:env(safe-area-inset-top,0px);display:flex;align-items:center;justify-content:center;background:rgba(20,33,61,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 10px 30px -18px rgba(0,0,0,.7);opacity:0;transform:translateY(-100%);transition:opacity .35s,transform .35s cubic-bezier(.2,.7,.2,1)}
+.bar img{height:32px;width:auto}
+.bar.on{opacity:1;transform:none}
+@keyframes lgIn{from{opacity:0;filter:blur(8px);transform:translateY(8px) scale(.96)}to{opacity:1;filter:none;transform:none}}
+@keyframes lineIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.cats{margin-top:22px}
+@media (min-width: 992px){.pxh{margin:12px 0 0;border-radius:14px;height:240px}}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.rv.in{opacity:1;transform:none}
+.row .rh{will-change:transform}
+@media (prefers-reduced-motion: reduce){.L2,.L3 .lg,.orn span,.orn i,.tg{animation:none}.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 <div class="page">
-  <header class="site-header">
-    <div class="brandbar"><img class="logo" alt="Aliança Print" width="164" height="40" src="/img/logo.webp"></div>
-  </header>
+<div class="bar" id="bar" aria-hidden="true"><img src="/img/logo.webp" alt="" width="131" height="32"></div>
+<header class="pxh" id="pxh">
+  <div class="L1" id="L1"><img src="/img/natureza-encantada-02.webp" alt=""><img src="/img/natureza-tropical-09.webp" alt=""><img src="/img/natureza-animal-01.webp" alt=""><img src="/img/essencia-capa-01.webp" alt=""></div>
+  <div class="L2" id="L2"></div>
+  <div class="L3" id="L3"><img class="lg" alt="Aliança Print" src="/img/logo.webp" width="262" height="64"><div class="orn"><span></span><i>✦</i><span></span></div><p class="tg">AGENDAS PERSONALIZADAS · 2027</p></div>
+</header>
   <main>
     <h1 class="vh">Aliança Print: catálogo de produtos</h1>
     <div class="cats" role="tablist" aria-label="Categorias" id="cats"></div>
@@ -434,5 +468,33 @@ html.lock { overflow: hidden; }
   document.documentElement.classList.add("js"); document.querySelector(".page").classList.add("js"); ov.classList.add("js");
 })();
 </script>
-</body>
+<script>
+(function(){
+  var L1=document.getElementById("L1"),L2=document.getElementById("L2"),L3=document.getElementById("L3"),bar=document.getElementById("bar"),H=260,tick=false;
+  var still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function upd(){
+    tick=false;var y=scrollY;
+    bar.classList.toggle("on",y>H-70);
+    if(still||y>H+40)return;
+    var p=Math.min(1,y/H);
+    L1.style.transform="translate3d(0,"+(y*0.55)+"px,0) scale("+(1+p*0.06)+")";
+    L2.style.transform="translate3d(0,"+(y*0.25)+"px,0)";
+    L3.style.transform="translate3d(0,"+(y*0.4)+"px,0) scale("+(1-p*0.25)+")";
+    L3.style.opacity=String(Math.max(0,1-p*1.5));
+  }
+  function rows(){
+    if(still)return;var vh=innerHeight;
+    document.querySelectorAll(".colecao.on .row .rh").forEach(function(h){var r=h.getBoundingClientRect();if(r.bottom<-50||r.top>vh+50)return;var d=(r.top-vh*0.5)/vh;h.style.transform="translate3d(0,"+(d*-14).toFixed(1)+"px,0)";});
+  }
+  addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(function(){upd();rows();});}},{passive:true});upd();
+  if(still||!("IntersectionObserver" in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}})},{rootMargin:"0px 0px -8% 0px"});
+  function mark(){
+    document.querySelectorAll(".cats,.tabs.on,.colecao.on .meta,.capas .capa,.soon.on").forEach(function(el){if(!el.classList.contains("rv")){el.classList.add("rv");io.observe(el);}});
+    document.querySelectorAll(".row").forEach(function(r){r.querySelectorAll(".rs .capa").forEach(function(c,i){if(!c.classList.contains("rv")){c.classList.add("rv");c.style.setProperty("--d",Math.min(i,5)*90+"ms");io.observe(c);}});});
+  }
+  new MutationObserver(mark).observe(document.getElementById("cols"),{childList:true,subtree:true});
+  mark();
+})();
+</script></body>
 </html>

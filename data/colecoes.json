@@ -473,6 +473,144 @@
           "imagem": "/img/essencia-capa-32.webp"
         }
       ]
+    },
+    {
+      "nome": "Coleção Masculina",
+      "categoria": "Agendas 2027",
+      "publicada": true,
+      "especificacao": "A5 · 350 páginas",
+      "produto_no_pedido": "a Agenda 2027 Coleção Masculina (A5)",
+      "pergunta_miolo": "Com versículo ou sem?",
+      "subtitulo_miolo": "Escolha o miolo da sua agenda.",
+      "miolos": [
+        {
+          "titulo": "Com versículo",
+          "descricao": "Um versículo bíblico em cada dia, com o espaço “Edificação de hoje”.",
+          "resumo": "Com versículo · Edificante",
+          "no_pedido": "Edificante (com versículo)",
+          "imagem": "/img/brasil-miolo-1.webp"
+        },
+        {
+          "titulo": "Sem versículo",
+          "descricao": "Calendário do mês e espaço para anotações em cada dia.",
+          "resumo": "Sem versículo · Comercial Clássica",
+          "no_pedido": "Comercial Clássica (sem versículo)",
+          "imagem": "/img/brasil-miolo-2.webp"
+        }
+      ],
+      "pedir_nome": true,
+      "capas": [
+        {
+          "nome": "Executive Verde",
+          "imagem": "/img/masculina-executive-01.webp",
+          "grupo": "Executive"
+        },
+        {
+          "nome": "Executive Marrom",
+          "imagem": "/img/masculina-executive-02.webp",
+          "grupo": "Executive"
+        },
+        {
+          "nome": "Executive Grafite",
+          "imagem": "/img/masculina-executive-03.webp",
+          "grupo": "Executive"
+        },
+        {
+          "nome": "Executive Azul",
+          "imagem": "/img/masculina-executive-04.webp",
+          "grupo": "Executive"
+        },
+        {
+          "nome": "Homem Preto Listrado",
+          "imagem": "/img/masculina-homem-01.webp",
+          "grupo": "Coleção Homem"
+        },
+        {
+          "nome": "Homem Azul e Cinza",
+          "imagem": "/img/masculina-homem-02.webp",
+          "grupo": "Coleção Homem"
+        },
+        {
+          "nome": "Homem Azul e Couro",
+          "imagem": "/img/masculina-homem-03.webp",
+          "grupo": "Coleção Homem"
+        },
+        {
+          "nome": "Homem Listrado e Couro",
+          "imagem": "/img/masculina-homem-04.webp",
+          "grupo": "Coleção Homem"
+        },
+        {
+          "nome": "Homem Mármore",
+          "imagem": "/img/masculina-homem-05.webp",
+          "grupo": "Coleção Homem"
+        },
+        {
+          "nome": "Homem Geométrico",
+          "imagem": "/img/masculina-homem-06.webp",
+          "grupo": "Coleção Homem"
+        },
+        {
+          "nome": "Homem Couro Caramelo",
+          "imagem": "/img/masculina-homem-07.webp",
+          "grupo": "Coleção Homem"
+        },
+        {
+          "nome": "Homem Xadrez",
+          "imagem": "/img/masculina-homem-08.webp",
+          "grupo": "Coleção Homem"
+        },
+        {
+          "nome": "Legacy Preto",
+          "imagem": "/img/masculina-legacy-01.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Azul-Marinho",
+          "imagem": "/img/masculina-legacy-02.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Verde",
+          "imagem": "/img/masculina-legacy-03.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Fendi",
+          "imagem": "/img/masculina-legacy-04.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Café",
+          "imagem": "/img/masculina-legacy-05.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Areia",
+          "imagem": "/img/masculina-legacy-06.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Bordô",
+          "imagem": "/img/masculina-legacy-07.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Azul",
+          "imagem": "/img/masculina-legacy-08.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Grafite",
+          "imagem": "/img/masculina-legacy-09.webp",
+          "grupo": "Legacy"
+        },
+        {
+          "nome": "Legacy Branco",
+          "imagem": "/img/masculina-legacy-10.webp",
+          "grupo": "Legacy"
+        }
+      ]
     }
   ]
 }
