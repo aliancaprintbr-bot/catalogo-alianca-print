@@ -1,11 +1,11 @@
 {
   "colecoes": [
     {
-      "nome": "Coleção Brasil",
+      "nome": "Coleção Natureza",
       "categoria": "Agendas 2027",
       "publicada": true,
       "especificacao": "A5 · 350 páginas",
-      "produto_no_pedido": "a Agenda 2027 Coleção Brasil (A5)",
+      "produto_no_pedido": "a Agenda 2027 Coleção Natureza (A5)",
       "pergunta_miolo": "Com versículo ou sem?",
       "subtitulo_miolo": "Escolha o miolo da sua agenda.",
       "miolos": [
@@ -28,63 +28,293 @@
       "capas": [
         {
           "nome": "Helicônias e Renda",
-          "imagem": "/img/brasil-capa-01.webp"
+          "imagem": "/img/brasil-capa-01.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Tucano e Palmeiras",
-          "imagem": "/img/brasil-capa-02.webp"
+          "imagem": "/img/brasil-capa-02.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Varanda e Frutas",
-          "imagem": "/img/brasil-capa-03.webp"
+          "imagem": "/img/brasil-capa-03.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Ave-do-Paraíso",
-          "imagem": "/img/brasil-capa-04.webp"
+          "imagem": "/img/brasil-capa-04.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Sertão e Renda",
-          "imagem": "/img/brasil-capa-05.webp"
+          "imagem": "/img/brasil-capa-05.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Limões e Azulejos",
-          "imagem": "/img/brasil-capa-06.webp"
+          "imagem": "/img/brasil-capa-06.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Buganvília e Porta Azul",
-          "imagem": "/img/brasil-capa-07.webp"
+          "imagem": "/img/brasil-capa-07.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Pátio Azul",
-          "imagem": "/img/brasil-capa-08.webp"
+          "imagem": "/img/brasil-capa-08.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Lampião e Flores Amarelas",
-          "imagem": "/img/brasil-capa-09.webp"
+          "imagem": "/img/brasil-capa-09.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Fitas e Igrejinha",
-          "imagem": "/img/brasil-capa-10.webp"
+          "imagem": "/img/brasil-capa-10.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Onça-Pintada",
-          "imagem": "/img/brasil-capa-11.webp"
+          "imagem": "/img/brasil-capa-11.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Tucano",
-          "imagem": "/img/brasil-capa-12.webp"
+          "imagem": "/img/brasil-capa-12.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Jardim de Terracota",
-          "imagem": "/img/brasil-capa-13.webp"
+          "imagem": "/img/brasil-capa-13.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Estampa Brasil",
-          "imagem": "/img/brasil-capa-14.webp"
+          "imagem": "/img/brasil-capa-14.webp",
+          "grupo": "Cores do Brasil"
         },
         {
           "nome": "Cacto e Flores",
-          "imagem": "/img/brasil-capa-15.webp"
+          "imagem": "/img/brasil-capa-15.webp",
+          "grupo": "Cores do Brasil"
+        },
+        {
+          "nome": "Tropical Botânica Dourada",
+          "imagem": "/img/natureza-tropical-01.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Folhagem Luxo",
+          "imagem": "/img/natureza-tropical-02.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Botânica com Hibiscos",
+          "imagem": "/img/natureza-tropical-03.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Botânico Terracota",
+          "imagem": "/img/natureza-tropical-04.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Botânico Verde",
+          "imagem": "/img/natureza-tropical-05.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Tropical Dourado",
+          "imagem": "/img/natureza-tropical-06.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Floral Azul-Marinho",
+          "imagem": "/img/natureza-tropical-07.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Floral Luxo Azul-Marinho",
+          "imagem": "/img/natureza-tropical-08.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Floral Luxuosa",
+          "imagem": "/img/natureza-tropical-09.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Floral Verde com Hibisco",
+          "imagem": "/img/natureza-tropical-10.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Marsala com Flores Douradas",
+          "imagem": "/img/natureza-tropical-11.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Tropical Flor Verde e Dourado",
+          "imagem": "/img/natureza-tropical-12.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Tropical Verde e Dourado",
+          "imagem": "/img/natureza-tropical-13.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Floral com Pássaro e Flores Vermelhas",
+          "imagem": "/img/natureza-tropical-14.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Floral Dourada",
+          "imagem": "/img/natureza-tropical-15.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Floral Preto e Dourado",
+          "imagem": "/img/natureza-tropical-16.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Tropical Terracota e Dourado",
+          "imagem": "/img/natureza-tropical-17.webp",
+          "grupo": "Tropical"
+        },
+        {
+          "nome": "Beija-flor",
+          "imagem": "/img/natureza-encantada-01.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Pássaro Abstrato",
+          "imagem": "/img/natureza-encantada-02.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Botânica Vintage Rosé",
+          "imagem": "/img/natureza-encantada-03.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Botânico Borgonha",
+          "imagem": "/img/natureza-encantada-04.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Botânico Vintage Dourado",
+          "imagem": "/img/natureza-encantada-05.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Botânico com Pássaro e Flores",
+          "imagem": "/img/natureza-encantada-06.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Floral com Pássaros",
+          "imagem": "/img/natureza-encantada-07.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Floral com Pássaros Dourados",
+          "imagem": "/img/natureza-encantada-08.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Verde Botânica com Pássaro",
+          "imagem": "/img/natureza-encantada-09.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Floral Azul com Pássaro",
+          "imagem": "/img/natureza-encantada-10.webp",
+          "grupo": "Natureza Encantada"
+        },
+        {
+          "nome": "Luxuosa Leopardo Rosé",
+          "imagem": "/img/natureza-animal-01.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Luxuosa Leopardo Preto",
+          "imagem": "/img/natureza-animal-02.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Borgonha com Folhagens Douradas",
+          "imagem": "/img/natureza-animal-03.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Leopardo Dourado Luxuoso",
+          "imagem": "/img/natureza-animal-04.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Leopardo e Couro Dourado",
+          "imagem": "/img/natureza-animal-05.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Listrada com Detalhes Dourados",
+          "imagem": "/img/natureza-animal-06.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Luxo com Estampa de Leopardo",
+          "imagem": "/img/natureza-animal-07.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Luxo em Couro e Onça",
+          "imagem": "/img/natureza-animal-08.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Luxuosa Preto e Dourado",
+          "imagem": "/img/natureza-animal-09.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Luxuosa em Dourado",
+          "imagem": "/img/natureza-animal-10.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Verde Oliva e Leopardo",
+          "imagem": "/img/natureza-animal-11.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Verde e Dourado com Leopardo",
+          "imagem": "/img/natureza-animal-12.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Zebra e Dourado",
+          "imagem": "/img/natureza-animal-13.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Couro Marrom e Dourado",
+          "imagem": "/img/natureza-animal-14.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Zebra com Folhas Douradas",
+          "imagem": "/img/natureza-animal-15.webp",
+          "grupo": "Animal Print"
+        },
+        {
+          "nome": "Luxuosa com Folha Dourada",
+          "imagem": "/img/natureza-animal-16.webp",
+          "grupo": "Animal Print"
         }
       ]
     },

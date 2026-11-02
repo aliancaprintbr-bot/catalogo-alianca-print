@@ -168,6 +168,24 @@ html.lock { overflow: hidden; }
 .capa img { object-fit: cover; }
 .state { margin-top: 40px; color: var(--muted); }
 .stack { display: grid; gap: 22px; }
+/* abas numa linha só, deslizando */
+.cats, .tabs.on { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; margin-right: -16px; padding-right: 16px; }
+.cats::-webkit-scrollbar, .tabs::-webkit-scrollbar { display: none; }
+.cat, .tab { white-space: nowrap; flex: 0 0 auto; }
+/* fileiras estilo Netflix */
+.row { margin: 4px 0 28px; }
+.rh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.rh h2 { font-family: var(--font-display); font-size: 24px; font-weight: 600; line-height: 1.1; margin: 0; }
+.more { appearance: none; border: 0; background: none; padding: 6px 0; font: inherit; font-size: 13px; font-weight: 700; color: var(--gold); cursor: pointer; white-space: nowrap; }
+.more:focus-visible, .back2:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+.rs { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; margin-right: -16px; padding: 0 16px 14px 0; }
+.rs::-webkit-scrollbar { display: none; }
+.rs .capa { flex: 0 0 38%; scroll-snap-align: start; }
+@media (min-width: 600px) { .rs .capa { flex-basis: 23%; } }
+@media (min-width: 860px) { .rs .capa { flex-basis: 18%; } }
+.rs .nm { font-size: 17px; }
+.gview .rh { margin-bottom: 18px; }
+.back2 { appearance: none; border: 0; background: none; padding: 6px 0; font: inherit; font-size: 14px; font-weight: 600; color: var(--muted); cursor: pointer; }
 </style>
 </head>
 <body>
@@ -255,11 +273,23 @@ html.lock { overflow: hidden; }
         b += "</div>";
         list.forEach(function (c) {
           var meta = [c.especificacao, c.capas.length + " " + (c.rotulo_item || "Capa").toLowerCase() + (c.capas.length === 1 ? "" : "s")].filter(Boolean).join(" · ");
-          b += '<section class="colecao" data-cat="' + cid + '" data-col="' + c.id + '" aria-label="' + esc(c.nome) + '"><p class="meta">' + esc(meta) + '</p><div class="capas">';
-          c.capas.forEach(function (x, k) {
-            b += '<button type="button" class="capa" data-col="' + c.id + '" data-i="' + k + '"><img src="' + esc(img(x.imagem, 480)) + '" data-src="' + esc(x.imagem) + '" width="420" height="577" alt="' + esc(c.rotulo_item || "Capa") + ' ' + pad(k + 1) + ", " + esc(x.nome) + '" loading="lazy" decoding="async"><span class="cap-txt"><span class="num">' + pad(k + 1) + '</span><span class="nm">' + esc(x.nome) + "</span></span></button>";
-          });
-          b += "</div></section>";
+          b += '<section class="colecao" data-cat="' + cid + '" data-col="' + c.id + '" aria-label="' + esc(c.nome) + '"><p class="meta">' + esc(meta) + "</p>";
+          var grupos = [];
+          c.capas.forEach(function (x) { if (x.grupo && grupos.indexOf(x.grupo) < 0) grupos.push(x.grupo); });
+          if (grupos.length) {
+            grupos.forEach(function (g, gi) {
+              var idx = []; c.capas.forEach(function (x, k) { if (x.grupo === g) idx.push(k); });
+              b += '<div class="row"><div class="rh"><h2>' + esc(g) + '</h2><button type="button" class="more" data-col="' + c.id + '" data-g="' + esc(g) + '">Ver todas (' + idx.length + ') ›</button></div><div class="rs">';
+              idx.forEach(function (k, n) { b += card(c, k, 360, gi === 0 && n < 3); });
+              b += "</div></div>";
+            });
+            b += '<div class="gview" hidden></div>';
+          } else {
+            b += '<div class="capas">';
+            c.capas.forEach(function (x, k) { b += card(c, k, 480, false); });
+            b += "</div>";
+          }
+          b += "</section>";
         });
       } else {
         var msg = cat.mensagem_em_breve || "Estamos preparando novidades por aqui. Quer saber mais? Fale com a gente.";
@@ -268,11 +298,41 @@ html.lock { overflow: hidden; }
     });
     catsEl.innerHTML = h; colsEl.innerHTML = b;
     colsEl.querySelectorAll("img[data-src]").forEach(function (el) { fallback(el, el.getAttribute("data-src")); });
+    watch(colsEl);
     document.addEventListener("change", function (e) { if (e.target.name === "categoria" || /^col-/.test(e.target.name)) show(); });
-    colsEl.addEventListener("click", function (e) { var b = e.target.closest(".capa"); if (b) open(b.getAttribute("data-col"), +b.getAttribute("data-i"), true); });
+    colsEl.addEventListener("click", function (e) {
+      var b = e.target.closest(".capa"); if (b) { open(b.getAttribute("data-col"), +b.getAttribute("data-i"), true); return; }
+      var m = e.target.closest(".more"); if (m) { showGroup(m.closest(".colecao"), m.getAttribute("data-col"), m.getAttribute("data-g")); return; }
+      var k = e.target.closest(".back2"); if (k) showGroup(k.closest(".colecao"), null, null);
+    });
     show();
     var m = /^#(.+)-(\d+)$/.exec(location.hash);
     if (m) { var c0 = cols.filter(function (c) { return c.id === m[1]; })[0]; if (c0 && c0.capas[m[2] - 1]) { selectCol(c0); open(c0.id, m[2] - 1, false); } }
+  }
+
+  function card(c, k, w, eager) {
+    var x = c.capas[k];
+    var src = esc(img(x.imagem, w));
+    return '<button type="button" class="capa" data-col="' + c.id + '" data-i="' + k + '"><img ' + (eager ? 'src="' + src + '"' : 'src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-lazy="' + src + '"') + ' data-src="' + esc(x.imagem) + '" width="420" height="577" alt="' + esc(c.rotulo_item || "Capa") + ' ' + pad(k + 1) + ", " + esc(x.nome) + '"' + (eager ? ' fetchpriority="high"' : "") + ' decoding="async"><span class="cap-txt"><span class="num">' + pad(k + 1) + '</span><span class="nm">' + esc(x.nome) + "</span></span></button>";
+  }
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { var el = e.target; el.src = el.getAttribute("data-lazy"); el.removeAttribute("data-lazy"); io.unobserve(el); } });
+  }, { rootMargin: "300px 200px 300px 200px" }) : null;
+  function watch(root) {
+    root.querySelectorAll("img[data-lazy]").forEach(function (el) {
+      if (io) io.observe(el); else { el.src = el.getAttribute("data-lazy"); el.removeAttribute("data-lazy"); }
+    });
+  }
+  function showGroup(sec, colId, g) {
+    var c = cols.filter(function (x) { return x.id === colId; })[0], gv = sec.querySelector(".gview");
+    if (!g) { gv.hidden = true; gv.innerHTML = ""; sec.querySelectorAll(".row").forEach(function (r) { r.hidden = false; }); return; }
+    var h = '<div class="rh"><h2>' + esc(g) + '</h2><button type="button" class="back2">‹ Ver todas as fileiras</button></div><div class="capas">';
+    c.capas.forEach(function (x, k) { if (x.grupo === g) h += card(c, k, 480, false); });
+    gv.innerHTML = h + "</div>"; gv.hidden = false;
+    gv.querySelectorAll("img[data-src]").forEach(function (el) { fallback(el, el.getAttribute("data-src")); });
+    watch(gv);
+    sec.querySelectorAll(".row").forEach(function (r) { r.hidden = true; });
+    sec.scrollIntoView({ block: "start" }); window.scrollBy(0, -70);
   }
 
   function selectCol(c) {

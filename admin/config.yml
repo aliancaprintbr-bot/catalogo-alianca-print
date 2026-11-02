@@ -68,6 +68,7 @@ collections:
                 hint: "A ordem aqui é a numeração no site (01, 02...). Arraste para reordenar."
                 fields:
                   - { name: nome, label: Nome da capa, widget: string }
+                  - { name: grupo, label: Fileira (subcategoria), widget: string, required: false, hint: "Ex.: Tropical, Animal Print. Capas com o mesmo nome ficam na mesma fileira. Deixe vazio para coleção sem fileiras." }
                   - { name: imagem, label: Foto da capa, widget: image, hint: "Foto em pé (retrato), de preferência com fundo bonito." }
               - { name: pergunta_miolo, label: Pergunta do miolo, widget: string, required: false, default: "Com versículo ou sem?" }
               - { name: subtitulo_miolo, label: Texto abaixo da pergunta, widget: string, required: false, default: "Escolha o miolo da sua agenda." }
